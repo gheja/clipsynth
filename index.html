@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>clipsynth</title>
+		<script src="clipsynth.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="clipsynth.css" />
+	</head>
+	<body>
+		<div id="container">
+		</div>
+		<div id="footer">
+			Clips extracted from <a href="https://peach.blender.org/">Big Buck Bunny</a> | <a href="https://github.com/gheja/org/">https://github.com/gheja/clipsynth/</a>
+		</div>
+		<script type="text/javascript">
+			var org;
+			
+			function init()
+			{
+				synth = new Clipsynth("container");
+				synth.addClip("Q", [ "./videos/examples/big_buck_bunny_01b.webm", "./videos/examples/big_buck_bunny_01b.ogv", "./videos/examples/big_buck_bunny_01b.mp4" ]);
+				synth.addClip("W", [ "./videos/examples/big_buck_bunny_02b.webm", "./videos/examples/big_buck_bunny_02b.ogv", "./videos/examples/big_buck_bunny_02b.mp4" ]);
+				synth.addClip("E", [ "./videos/examples/big_buck_bunny_04b.webm", "./videos/examples/big_buck_bunny_04b.ogv", "./videos/examples/big_buck_bunny_04b.mp4" ]);
+				synth.addClip("A", [ "./videos/examples/big_buck_bunny_03b.webm", "./videos/examples/big_buck_bunny_03b.ogv", "./videos/examples/big_buck_bunny_03b.mp4" ]);
+				synth.addClip("S", [ "./videos/examples/big_buck_bunny_05b.webm", "./videos/examples/big_buck_bunny_05b.ogv", "./videos/examples/big_buck_bunny_05b.mp4" ]);
+				
+				window.addEventListener("keydown", synth.onKeyDown.bind(synth));
+				window.addEventListener("keyup", synth.onKeyUp.bind(synth));
+				window.addEventListener("resize", synth.onResize.bind(synth));
+				
+				synth.reorganizeDisplay();
+			}
+			
+			document.addEventListener("DOMContentLoaded", init);
+		</script>
+	</body>
+</html>
